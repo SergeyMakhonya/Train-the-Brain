@@ -20,8 +20,9 @@ void resize(sf::Vector2u size) {
 }
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
-	sf::RenderWindow window(sf::VideoMode(1024, 768), APP_NAME);
+	sf::RenderWindow window(sf::VideoMode(APP_WIDTH, APP_HEIGHT), APP_NAME);
 	window.setFramerateLimit(60);
+	System::window = &window;
 
 	sf::View view(window.getDefaultView());
 
