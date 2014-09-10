@@ -7,9 +7,10 @@
 *.sln.docstates
 
 # Build results
-[Dd]ebug/
+Train the Brain.exe
+#[Dd]ebug/
 [Dd]ebugPublic/
-[Rr]elease/
+#[Rr]elease/
 x64/
 build/
 bld/
