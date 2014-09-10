@@ -8,15 +8,13 @@
 
 # Build results
 Train the Brain.exe
-Train the Brain/[Rr]elease/
-Train the Brain/[Dd]ebug/
-#[Dd]ebug/
+[Dd]ebug/
 [Dd]ebugPublic/
-#[Rr]elease/
+[Rr]elease/
 x64/
 build/
 bld/
-[Bb]in/
+#[Bb]in/
 [Oo]bj/
 
 # MSTest test Results
