@@ -7,6 +7,8 @@
 
 #define APP_NAME L"Train the Brain"
 #define APP_ERROR_TITLE L"Train the Brain: Error"
+#define APP_WIDTH 1024
+#define APP_HEIGHT 600
 
 class System {
 public:
