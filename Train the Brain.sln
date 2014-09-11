@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Train the Brain", "Train the Brain\Train the Brain.vcxproj", "{A28D6F96-1A29-438B-88D8-232911E649B5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UI", "UI\UI.vcxproj", "{0E850D02-CBC8-4EF9-A3B9-A2D17F881972}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{A28D6F96-1A29-438B-88D8-232911E649B5}.Debug|Win32.Build.0 = Debug|Win32
 		{A28D6F96-1A29-438B-88D8-232911E649B5}.Release|Win32.ActiveCfg = Release|Win32
 		{A28D6F96-1A29-438B-88D8-232911E649B5}.Release|Win32.Build.0 = Release|Win32
+		{0E850D02-CBC8-4EF9-A3B9-A2D17F881972}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0E850D02-CBC8-4EF9-A3B9-A2D17F881972}.Debug|Win32.Build.0 = Debug|Win32
+		{0E850D02-CBC8-4EF9-A3B9-A2D17F881972}.Release|Win32.ActiveCfg = Release|Win32
+		{0E850D02-CBC8-4EF9-A3B9-A2D17F881972}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

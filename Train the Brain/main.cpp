@@ -1,4 +1,6 @@
 #include <SFML\Graphics.hpp>
+#include <UI\ui.h>
+#include <UI\button.h>
 
 #include "global.h"
 #include "input.h"
@@ -13,7 +15,10 @@
 	#pragma comment (lib,"sfml-graphics.lib")
 #endif
 
+ui::Button button;
+
 void update() {
+	button.update();
 }
 
 void resize(sf::Vector2u size) {
@@ -23,10 +28,12 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	sf::RenderWindow window(sf::VideoMode(APP_WIDTH, APP_HEIGHT), APP_NAME);
 	window.setFramerateLimit(60);
 	System::window = &window;
-
 	sf::View view(window.getDefaultView());
-
 	Input::init();
+
+	button.init();
+	button.setCaption(L"Hello world!");
+	button.setPosition(sf::Vector2f(15, 30));
 
 	while (window.isOpen()) {
 		sf::Event e;
@@ -46,7 +53,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		window.clear(sf::Color::Black);
 		{
-			//window.draw();
+			window.draw(button);
 		}
 		window.display();
 
