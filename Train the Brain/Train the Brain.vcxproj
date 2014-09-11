@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SolutionDir)libs\SFML\include;$(SolutionDir)UI;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)libs\SFML\lib\Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)libs\SFML\lib\Debug;$(SolutionDir)bin\$(Configuration)-version;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)bin\$(Configuration)-version\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
