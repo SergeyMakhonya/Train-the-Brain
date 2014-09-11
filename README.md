@@ -22,3 +22,8 @@ Links
 
 * [Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs)
 * [SFML](http://sfml-dev.org/index.php)
+
+License
+----------------
+
+![gnu gpl v3](http://www.gnu.org/graphics/gplv3-127x51.png)
