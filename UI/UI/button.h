@@ -3,6 +3,8 @@
 
 #include <sfml\Graphics.hpp>
 
+#include "input.h"
+
 namespace ui {
 	class Button :	public UI,
 					public sf::Drawable,
@@ -16,7 +18,7 @@ namespace ui {
 		}
 
 		virtual void update() {
-			sf::Vector2i mousePos = sf::Mouse::getPosition();
+			sf::Vector2i mousePos = Input::getMousePos();
 			if (rect.getGlobalBounds().contains(mousePos.x, mousePos.y)) {
 				if (!_isHover)
 					rect.setFillColor(sf::Color(255, 190, 0));

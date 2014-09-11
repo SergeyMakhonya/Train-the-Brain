@@ -3,7 +3,6 @@
 
 #include <Windows.h>
 #include <SFML\Graphics.hpp>
-#include <string>
 
 #define APP_NAME L"Train the Brain"
 #define APP_ERROR_TITLE L"Train the Brain: Error"

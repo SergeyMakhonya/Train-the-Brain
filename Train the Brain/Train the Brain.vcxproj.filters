@@ -8,11 +8,5 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="global.cpp" />
-    <ClCompile Include="input.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="input.h" />
-    <ClInclude Include="global.h" />
   </ItemGroup>
 </Project>

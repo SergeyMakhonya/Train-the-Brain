@@ -1,9 +1,10 @@
 #include <SFML\Graphics.hpp>
 #include <UI\ui.h>
 #include <UI\button.h>
+#include <UI\input.h>
+#include <UI\global.h>
 
-#include "global.h"
-#include "input.h"
+#pragma comment (lib,"ui.lib")
 
 #ifdef _DEBUG
 	#pragma comment (lib,"sfml-system-d.lib")

@@ -9,5 +9,11 @@
   <ItemGroup>
     <ClInclude Include="UI\button.h" />
     <ClInclude Include="UI\ui.h" />
+    <ClInclude Include="UI\input.h" />
+    <ClInclude Include="UI\global.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="UI\input.cpp" />
+    <ClCompile Include="UI\global.cpp" />
   </ItemGroup>
 </Project>
