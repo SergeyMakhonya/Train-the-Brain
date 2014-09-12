@@ -7,6 +7,7 @@
 #include <UI\button.h>
 #include <UI\input.h>
 #include <UI\global.h>
+//#include <UI\res.h>
 
 #pragma comment (lib,"ui.lib")
 
@@ -30,13 +31,23 @@ public:
 
 ui::Button button;
 
-void init() {
+bool init() {
+	sf::Font *fontUI = new sf::Font();
+	if (!fontUI->loadFromFile("c:\\Windows\\Fonts\\tahoma.ttf")) {
+		return false;
+	}
+	//ui::Res::add("gui", fontUI);
+	ui::UI::setDefaultFont(fontUI);
+	
 	ButtonEvent *buttonEvent = new ButtonEvent();
 	
 	button.init();
 	button.setCaption(L"Hello world!");
+	button.setTextSize(20);
 	button.setPosition(sf::Vector2f(15, 30));
 	button.setEvent(buttonEvent);
+
+	return true;
 }
 
 void update() {
@@ -53,7 +64,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	sf::View view(window.getDefaultView());
 	Input::init();
 
-	init();
+	if (!init())
+		return -1;
 
 	while (window.isOpen()) {
 		sf::Event e;

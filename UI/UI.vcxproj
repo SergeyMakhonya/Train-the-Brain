@@ -14,11 +14,14 @@
     <ClInclude Include="UI\button.h" />
     <ClInclude Include="UI\global.h" />
     <ClInclude Include="UI\input.h" />
+    <ClInclude Include="UI\res.h" />
     <ClInclude Include="UI\ui.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UI\global.cpp" />
     <ClCompile Include="UI\input.cpp" />
+    <ClCompile Include="UI\res.cpp" />
+    <ClCompile Include="UI\ui.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0E850D02-CBC8-4EF9-A3B9-A2D17F881972}</ProjectGuid>

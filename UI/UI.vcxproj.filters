@@ -11,9 +11,12 @@
     <ClInclude Include="UI\ui.h" />
     <ClInclude Include="UI\input.h" />
     <ClInclude Include="UI\global.h" />
+    <ClInclude Include="UI\res.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UI\input.cpp" />
     <ClCompile Include="UI\global.cpp" />
+    <ClCompile Include="UI\res.cpp" />
+    <ClCompile Include="UI\ui.cpp" />
   </ItemGroup>
 </Project>

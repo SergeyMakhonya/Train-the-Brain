@@ -25,12 +25,16 @@ namespace ui {
 	private:
 		std::wstring caption;
 		IButton *e;
+		sf::Text text;
 	public:
 		virtual void init() {
 			rect.setSize(sf::Vector2f(150, 35));
 			_isHover = false;
 			_isDown = false;
 			_isHoverHit = false;
+
+			text.setFont(*ui::UI::font);
+			text.setColor(sf::Color::Black);
 		}
 
 		virtual void update() {
@@ -77,8 +81,23 @@ namespace ui {
 			}
 		}
 
+		void calcTextPosition() {
+			sf::Vector2f size = rect.getSize();
+			sf::FloatRect txtRect = text.getGlobalBounds();
+			text.setPosition(sf::Vector2f((int)(size.x / 2 - txtRect.width / 2), (int)(size.y / 2 - txtRect.height)));
+		}
+
 		void setCaption(std::wstring value) {
 			caption = value;
+			text.setString(value);
+
+			calcTextPosition();
+		}
+
+		void setTextSize(unsigned int size) {
+			text.setCharacterSize(size);
+
+			calcTextPosition();
 		}
 
 		void setEvent(IButton *e) {
@@ -93,6 +112,7 @@ namespace ui {
 		virtual void draw(sf::RenderTarget &target, sf::RenderStates states) const {
 			states.transform *= getTransform();
 			target.draw(rect, states);
+			target.draw(text, states);
 		}
 	};
 }
