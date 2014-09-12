@@ -11,16 +11,26 @@
 #include "input.h"
 
 namespace ui {
+	class Button;
+	
+	class IButton {
+	public:
+		virtual ~IButton() {}
+		virtual void onClick(ui::Button *button) = 0;
+	};
+
 	class Button :	public UI,
 					public sf::Drawable,
 					public sf::Transformable {
 	private:
 		std::wstring caption;
+		IButton *e;
 	public:
 		virtual void init() {
 			rect.setSize(sf::Vector2f(150, 35));
 			_isHover = false;
 			_isDown = false;
+			_isHoverHit = false;
 		}
 
 		virtual void update() {
@@ -33,11 +43,19 @@ namespace ui {
 				if (Input::isMouseDown(sf::Mouse::Left)) {
 					stateChange = !_isDown;
 					_isDown = true;
+
+					if (Input::isMouseHit(sf::Mouse::Left))
+						_isHoverHit = true;
 				}
 				else {
 					stateChange = !_isHover || _isDown;
+
+					if (_isDown && _isHoverHit)
+						e->onClick(this);
+
 					_isHover = true;
 					_isDown = false;
+					_isHoverHit = false;
 				}
 			}
 			else {
@@ -45,6 +63,7 @@ namespace ui {
 					stateChange = _isHover;
 					_isHover = false;
 					_isDown = false;
+					_isHoverHit = false;
 				}
 			}
 
@@ -60,6 +79,14 @@ namespace ui {
 
 		void setCaption(std::wstring value) {
 			caption = value;
+		}
+
+		void setEvent(IButton *e) {
+			this->e = e;
+		}
+
+		sf::Vector2f getSize() {
+			return rect.getSize();
 		}
 
 	private:

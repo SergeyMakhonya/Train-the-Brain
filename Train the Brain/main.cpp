@@ -20,7 +20,24 @@
 	#pragma comment (lib,"sfml-graphics.lib")
 #endif
 
+class ButtonEvent : public ui::IButton {
+public:
+	virtual void onClick(ui::Button *button) {
+		button->setPosition(sf::Vector2f(	rand() % (int)(System::window->getSize().x - button->getSize().x),
+											rand() % (int)(System::window->getSize().y - button->getSize().y)	));
+	}
+};
+
 ui::Button button;
+
+void init() {
+	ButtonEvent *buttonEvent = new ButtonEvent();
+	
+	button.init();
+	button.setCaption(L"Hello world!");
+	button.setPosition(sf::Vector2f(15, 30));
+	button.setEvent(buttonEvent);
+}
 
 void update() {
 	button.update();
@@ -36,9 +53,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	sf::View view(window.getDefaultView());
 	Input::init();
 
-	button.init();
-	button.setCaption(L"Hello world!");
-	button.setPosition(sf::Vector2f(15, 30));
+	init();
 
 	while (window.isOpen()) {
 		sf::Event e;
