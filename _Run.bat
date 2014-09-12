@@ -1,0 +1,1 @@
+start "" "bin\Release-version\Train the Brain.exe"
