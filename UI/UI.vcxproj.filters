@@ -5,18 +5,42 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="ui">
+      <UniqueIdentifier>{47faa0d0-c084-45a9-8a82-26f249fa2014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{0b0c8f69-6479-4c00-bc44-3f1ae042b181}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="UI\button.h" />
-    <ClInclude Include="UI\ui.h" />
-    <ClInclude Include="UI\input.h" />
-    <ClInclude Include="UI\global.h" />
-    <ClInclude Include="UI\res.h" />
+    <ClInclude Include="UI\button.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\ui.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\global.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\input.h">
+      <Filter>util</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\res.h">
+      <Filter>util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="UI\input.cpp" />
-    <ClCompile Include="UI\global.cpp" />
-    <ClCompile Include="UI\res.cpp" />
-    <ClCompile Include="UI\ui.cpp" />
+    <ClCompile Include="UI\ui.cpp">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\global.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\input.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="UI\res.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

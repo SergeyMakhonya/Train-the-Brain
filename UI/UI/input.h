@@ -140,6 +140,8 @@ public:
 		default:
 			break;
 		}
+
+		return false;
 	}
 
 	static sf::Vector2i getMousePos() { return sf::Mouse::getPosition(*System::window); }

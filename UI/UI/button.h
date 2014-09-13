@@ -19,66 +19,38 @@ namespace ui {
 		virtual void onClick(ui::Button *button) = 0;
 	};
 
-	class Button :	public UI,
-					public sf::Drawable,
-					public sf::Transformable {
+	class Button :	public UI {
 	private:
 		std::wstring caption;
 		IButton *e;
 		sf::Text text;
 	public:
 		virtual void init() {
-			rect.setSize(sf::Vector2f(150, 35));
-			_isHover = false;
-			_isDown = false;
-			_isHoverHit = false;
+			initUI();
 
+			rect.setSize(sf::Vector2f(150, 35));
 			text.setFont(*ui::UI::font);
 			text.setColor(sf::Color::Black);
 		}
 
 		virtual void update() {
-			sf::Vector2i mousePos = Input::getMousePos();
-			sf::Vector2f uiPos = getPosition();
+			updateUI();
+		}
 
-			bool stateChange = false;
+		virtual void onMouseDown() {
+			if (_isHover)
+				rect.setFillColor(sf::Color::Red);
+		}
 
-			if (rect.getGlobalBounds().contains(mousePos.x - uiPos.x, mousePos.y - uiPos.y)) {
-				if (Input::isMouseDown(sf::Mouse::Left)) {
-					stateChange = !_isDown;
-					_isDown = true;
+		virtual void onMouseUp() {
+			if (_isHover)
+				rect.setFillColor(sf::Color::Yellow);
+			else
+				rect.setFillColor(sf::Color::White);
+		}
 
-					if (Input::isMouseHit(sf::Mouse::Left))
-						_isHoverHit = true;
-				}
-				else {
-					stateChange = !_isHover || _isDown;
-
-					if (_isDown && _isHoverHit)
-						e->onClick(this);
-
-					_isHover = true;
-					_isDown = false;
-					_isHoverHit = false;
-				}
-			}
-			else {
-				if (!Input::isMouseDown(sf::Mouse::Left)) {
-					stateChange = _isHover;
-					_isHover = false;
-					_isDown = false;
-					_isHoverHit = false;
-				}
-			}
-
-			if (stateChange) {
-				if (_isDown)
-					rect.setFillColor(sf::Color::Red);
-				else if (_isHover)
-					rect.setFillColor(sf::Color::Yellow);
-				else
-					rect.setFillColor(sf::Color::White);
-			}
+		virtual void onClick() {
+			e->onClick(this);
 		}
 
 		void calcTextPosition() {
