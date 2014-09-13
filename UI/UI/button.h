@@ -84,7 +84,7 @@ namespace ui {
 		void calcTextPosition() {
 			sf::Vector2f size = rect.getSize();
 			sf::FloatRect txtRect = text.getGlobalBounds();
-			text.setPosition(sf::Vector2f((int)(size.x / 2 - txtRect.width / 2), (int)(size.y / 2 - txtRect.height)));
+			text.setPosition(sf::Vector2f((int)(size.x / 2 - txtRect.width / 2), (int)(size.y / 2 - 13)));
 		}
 
 		void setCaption(std::wstring value) {

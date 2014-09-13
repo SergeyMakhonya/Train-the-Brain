@@ -120,6 +120,7 @@ public:
 		default:
 			break;
 		}
+		return false;
 	}
 
 	static bool isMouseRelease(sf::Mouse::Button button) {
