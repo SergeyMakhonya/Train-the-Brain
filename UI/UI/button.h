@@ -43,14 +43,21 @@ namespace ui {
 		}
 
 		virtual void onMouseUp() {
-			if (_isHover)
-				rect.setFillColor(sf::Color::Yellow);
-			else
-				rect.setFillColor(sf::Color::White);
+			onHover();
 		}
 
 		virtual void onClick() {
 			e->onClick(this);
+		}
+
+		virtual void onHover() {
+			if (_isHover)
+				if (_isDown)
+					rect.setFillColor(sf::Color::Red);
+				else
+					rect.setFillColor(sf::Color::Yellow);
+			else
+				rect.setFillColor(sf::Color::White);
 		}
 
 		void calcTextPosition() {

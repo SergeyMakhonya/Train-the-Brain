@@ -23,6 +23,7 @@ namespace ui {
 		virtual void onMouseDown() = 0;
 		virtual void onMouseUp() = 0;
 		virtual void onClick() = 0;
+		virtual void onHover() = 0;
 	public:
 		static void setDefaultFont(sf::Font *font) {
 			UI::font = font;
@@ -41,7 +42,10 @@ namespace ui {
 			sf::Vector2i mousePos = Input::getMousePos();
 			sf::Vector2f uiPos = getPosition();
 
+			bool prevHover = _isHover;
 			_isHover = rect.getGlobalBounds().contains(mousePos.x - uiPos.x, mousePos.y - uiPos.y);
+			if (prevHover != _isHover)
+				onHover();
 
 			if (_isHover) {
 				if (Input::isMouseHit(sf::Mouse::Left)) {
@@ -58,8 +62,10 @@ namespace ui {
 			else {
 				if (Input::isMouseHit(sf::Mouse::Left))
 					onMouseDown();
-				else if (Input::isMouseRelease(sf::Mouse::Left))
+				else if (Input::isMouseRelease(sf::Mouse::Left)) {
 					onMouseUp();
+					_isDown = false;
+				}
 			}
 		}
 	};
