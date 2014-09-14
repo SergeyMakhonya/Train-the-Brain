@@ -1,29 +1,28 @@
 Train-the-Brain
 ===============
 
-Program to train the brain.
+Эта программа будет тренировать ваши мозги...
 
-Captions
+Описание
 ----------------
 
-This program will remember the user-entered information.
+Скоро будет...
 
-Эта программа будет запоминать введенную пользователем информацию.
-
-Properties
+Параметры
 ----------------
 
-* Language: C++12
+* Язык программирования: C++12
 * IDE: Visual Studio 2013 Express Desktop
-* [SFML Latest Version from GitHub repository](https://github.com/LaurentGomila/SFML) (Compiled with the C++12)
+* [SFML Latest Version from GitHub repository](https://github.com/LaurentGomila/SFML) (Скомпилирована компилятором Visual C++12)
 
-Links
+Ссылки
 ----------------
 
 * [Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs)
 * [SFML](http://sfml-dev.org/index.php)
 
-License
+Лицензия
 ----------------
 
+GNU GPL version 3
 ![gnu gpl v3](http://www.gnu.org/graphics/gplv3-127x51.png)
