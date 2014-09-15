@@ -2,8 +2,8 @@
  *	licensed under the terms of the GNU General Public License (GPL) version 3
  */
 
-#ifndef _UI_BUTTON
-#define _UI_BUTTON
+#ifndef _UI_TEXTBOX
+#define _UI_TEXTBOX
 
 #include <sfml\Graphics.hpp>
 
@@ -11,26 +11,28 @@
 #include "input.h"
 
 namespace ui {
-	class Button;
+	class Textbox;
 	
-	class IButton {
+	class ITextbox {
 	public:
-		virtual ~IButton() {}
-		virtual void onClick(ui::Button *button) = 0;
+		virtual ~ITextbox() {}
+		virtual void onClick(ui::Textbox *textbox) = 0;
+		virtual void onChange(ui::Textbox *textbox) = 0;
 	};
 
-	class Button :	public UI {
+	class Textbox :	public UI {
 	private:
-		std::wstring caption;
-		IButton *e;
+		std::wstring value;
+		ITextbox *e;
 		sf::Text text;
 	public:
 		virtual void init() {
 			initUI();
 
-			rect.setSize(sf::Vector2f(150, 35));
+			rect.setSize(sf::Vector2f(150, 30));
 			text.setFont(*ui::UI::font);
 			text.setColor(sf::Color::Black);
+			text.setPosition(8, 8);
 		}
 
 		virtual void update() {
@@ -38,12 +40,9 @@ namespace ui {
 		}
 
 		virtual void onMouseDown() {
-			if (_isHover)
-				rect.setFillColor(sf::Color::Red);
 		}
 
 		virtual void onMouseUp() {
-			onHoverChange();
 		}
 
 		virtual void onClick() {
@@ -51,36 +50,23 @@ namespace ui {
 		}
 
 		virtual void onHoverChange() {
-			if (_isHover)
-				if (_isDown)
-					rect.setFillColor(sf::Color::Red);
-				else
-					rect.setFillColor(sf::Color::Yellow);
-			else
-				rect.setFillColor(sf::Color::White);
 		}
 
-		void calcTextPosition() {
-			sf::Vector2f size = rect.getSize();
-			sf::FloatRect txtRect = text.getGlobalBounds();
-			text.setPosition(sf::Vector2f((int)(size.x / 2 - txtRect.width / 2), (int)(size.y / 2 - 13)));
-		}
-
-		void setCaption(std::wstring value) {
-			caption = value;
+		void setValue(std::wstring value) {
+			this->value = value;
 			text.setString(value);
-
-			calcTextPosition();
 		}
 
 		void setTextSize(unsigned int size) {
 			text.setCharacterSize(size);
-
-			calcTextPosition();
 		}
 
-		void setEvent(IButton *e) {
+		void setEvent(ITextbox *e) {
 			this->e = e;
+		}
+
+		void setSize(sf::Vector2f value) {
+			rect.setSize(value);
 		}
 
 		sf::Vector2f getSize() {

@@ -5,6 +5,7 @@
 #include <SFML\Graphics.hpp>
 #include <UI\ui.h>
 #include <UI\button.h>
+#include <UI\textbox.h>
 #include <UI\input.h>
 #include <UI\global.h>
 //#include <UI\res.h>
@@ -21,15 +22,26 @@
 	#pragma comment (lib,"sfml-graphics.lib")
 #endif
 
+ui::Button button;
+ui::Textbox textbox;
+
 class ButtonEvent : public ui::IButton {
 public:
 	virtual void onClick(ui::Button *button) {
-		button->setPosition(sf::Vector2f(	rand() % (int)(System::window->getSize().x - button->getSize().x),
-											rand() % (int)(System::window->getSize().y - button->getSize().y)	));
+		/*button->setPosition(sf::Vector2f(	rand() % (int)(System::window->getSize().x - button->getSize().x),
+											rand() % (int)(System::window->getSize().y - button->getSize().y)	));*/
+		textbox.setValue(L"Happy birthday, Vlad!!!");
 	}
 };
 
-ui::Button button;
+class TextboxEvent : public ui::ITextbox {
+public:
+	virtual void onClick(ui::Textbox *textbox) {
+	}
+
+	virtual void onChange(ui::Textbox *textbox) {
+	}
+};
 
 bool init() {
 	sf::Font *fontUI = new sf::Font();
@@ -40,18 +52,26 @@ bool init() {
 	ui::UI::setDefaultFont(fontUI);
 	
 	ButtonEvent *buttonEvent = new ButtonEvent();
+	TextboxEvent *textboxEvent = new TextboxEvent();
 	
 	button.init();
-	button.setCaption(L"Hello world!");
+	button.setCaption(L"Click me!");
 	button.setTextSize(20);
 	button.setPosition(sf::Vector2f(15, 30));
 	button.setEvent(buttonEvent);
+
+	textbox.init();
+	textbox.setTextSize(25);
+	textbox.setPosition(sf::Vector2f(15, 80));
+	textbox.setSize(sf::Vector2f(285, 50));
+	textbox.setEvent(textboxEvent);
 
 	return true;
 }
 
 void update() {
 	button.update();
+	textbox.update();
 }
 
 void resize(sf::Vector2u size) {
@@ -86,6 +106,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		window.clear(sf::Color::Black);
 		{
 			window.draw(button);
+			window.draw(textbox);
 		}
 		window.display();
 

@@ -15,6 +15,7 @@
     <ClInclude Include="UI\global.h" />
     <ClInclude Include="UI\input.h" />
     <ClInclude Include="UI\res.h" />
+    <ClInclude Include="UI\textbox.h" />
     <ClInclude Include="UI\ui.h" />
   </ItemGroup>
   <ItemGroup>

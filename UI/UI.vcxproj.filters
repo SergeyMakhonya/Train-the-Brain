@@ -28,6 +28,9 @@
     <ClInclude Include="UI\res.h">
       <Filter>util</Filter>
     </ClInclude>
+    <ClInclude Include="UI\textbox.h">
+      <Filter>ui</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="UI\ui.cpp">

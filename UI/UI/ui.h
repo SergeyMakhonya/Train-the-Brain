@@ -23,7 +23,7 @@ namespace ui {
 		virtual void onMouseDown() = 0;
 		virtual void onMouseUp() = 0;
 		virtual void onClick() = 0;
-		virtual void onHover() = 0;
+		virtual void onHoverChange() = 0;
 	public:
 		static void setDefaultFont(sf::Font *font) {
 			UI::font = font;
@@ -45,7 +45,7 @@ namespace ui {
 			bool prevHover = _isHover;
 			_isHover = rect.getGlobalBounds().contains(mousePos.x - uiPos.x, mousePos.y - uiPos.y);
 			if (prevHover != _isHover)
-				onHover();
+				onHoverChange();
 
 			if (_isHover) {
 				if (Input::isMouseHit(sf::Mouse::Left)) {
