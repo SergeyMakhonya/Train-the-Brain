@@ -1,1 +1,2 @@
-start "" "bin\Release-version\Train the Brain.exe"
+cd "bin\Release-version\"
+start "" "Train the Brain.exe"
