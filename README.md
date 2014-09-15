@@ -24,9 +24,18 @@ Train-the-Brain
 Параметры
 ===============
 
+Версия на C++
+----------------
+
 * Язык программирования: C++12
 * IDE: Visual Studio 2013 Express Desktop
 * [SFML Latest Version from GitHub repository](https://github.com/LaurentGomila/SFML) (Скомпилирована компилятором Visual C++12)
+
+Версия на Delphi
+----------------
+
+* Язык программирования: Delphi
+* IDE: [Lazarus](http://www.lazarus.freepascal.org/)
 
 Ссылки
 ===============
