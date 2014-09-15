@@ -6,6 +6,7 @@
 #define _UI
 
 #include <sfml\Graphics.hpp>
+#include <vector>
 
 #include "input.h"
 
@@ -16,8 +17,11 @@ namespace ui {
 		bool _isHover, _isDown;
 
 		static sf::Font *font;
+	private:
+		static std::vector<UI*> manager_elements;
 	public:
 		virtual void init() = 0;
+	private:
 		virtual void update() = 0;
 	private:
 		virtual void onMouseDown() = 0;
@@ -32,6 +36,7 @@ namespace ui {
 		void initUI() {
 			_isHover = false;
 			_isDown = false;
+			manager_add(this);
 		}
 
 		void updateUI() {
@@ -67,6 +72,21 @@ namespace ui {
 					_isDown = false;
 				}
 			}
+		}
+
+	public:
+		static void manager_update() {
+			for (auto ui : manager_elements)
+				ui->update();
+		}
+
+		static void manager_draw(sf::RenderWindow *win) {
+			for (auto ui : manager_elements)
+				win->draw(*ui);
+		}
+	private:
+		static void manager_add(UI *ui) {
+			manager_elements.push_back(ui);
 		}
 	};
 }

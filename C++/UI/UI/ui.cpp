@@ -6,4 +6,5 @@
 
 namespace ui {
 	sf::Font *UI::font;
+	std::vector<UI*> UI::manager_elements;
 }

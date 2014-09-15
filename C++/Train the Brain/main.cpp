@@ -27,15 +27,12 @@ ui::Textbox textbox;
 
 sf::Sprite sprite;
 sf::Texture texture;
-bool activateSecret;
 
 class ButtonEvent : public ui::IButton {
 public:
 	virtual void onClick(ui::Button *button) {
-		/*button->setPosition(sf::Vector2f(	rand() % (int)(System::window->getSize().x - button->getSize().x),
-											rand() % (int)(System::window->getSize().y - button->getSize().y)	));*/
-		textbox.setValue(L"Happy birthday, Vlad!!!");
-		activateSecret = true;
+		button->setPosition(sf::Vector2f(	rand() % (int)(System::window->getSize().x - button->getSize().x),
+											rand() % (int)(System::window->getSize().y - button->getSize().y)	));
 	}
 };
 
@@ -70,13 +67,6 @@ bool init() {
 	textbox.setPosition(sf::Vector2f(15, 80));
 	textbox.setSize(sf::Vector2f(285, 50));
 	textbox.setEvent(textboxEvent);
-
-	if (!texture.loadFromFile("img.png"))
-		return false;
-
-	sprite.setPosition(sf::Vector2f(350, 15));
-	sprite.setTexture(texture);
-	activateSecret = false;
 
 	return true;
 }
@@ -117,10 +107,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		window.clear(sf::Color::Black);
 		{
-			window.draw(button);
-			window.draw(textbox);
-			if (activateSecret)
-				window.draw(sprite);
+			ui::UI::manager_draw(&window);
 		}
 		window.display();
 
